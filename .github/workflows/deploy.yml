@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /app/opcuasim
+            cd /app/OPCUA_ServerSim
             git fetch origin main
             git reset --hard origin/main
             git pull origin main
