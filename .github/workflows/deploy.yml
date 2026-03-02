@@ -1,0 +1,26 @@
+name: Auto-Deploy OPCUA_ServerSim
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Aggiornamento Server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /app/opcuasim
+            git fetch origin main
+            git reset --hard origin/main
+            git pull origin main
+            sudo systemctl restart expman
