@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Script di deploy per Ubuntu 24.04
-# Target: /app/opcuasim/
+# Target: /app/OPCUA_ServerSim/
 
-APP_DIR="/app/opcuasim"
+APP_DIR="/app/OPCUA_ServerSim"
 VENV_DIR="$APP_DIR/venv"
 
 # Crea directory se non esiste
@@ -24,7 +24,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Configura il servizio systemd
-cat <<EOF | sudo tee /etc/systemd/system/opcuasim.service
+cat <<EOF | sudo tee /etc/systemd/system/OPCUA_ServerSim.service
 [Unit]
 Description=OPC-UA Simulator Agripak
 After=network.target

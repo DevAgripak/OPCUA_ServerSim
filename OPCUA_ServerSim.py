@@ -8,7 +8,7 @@ from asyncua import ua, Server
 # Configurazione Server
 ENDPOINT = "opc.tcp://0.0.0.0:4840/freeopcua/server/"
 SERVER_NAME = "OPCUA_Sim_Agripak"
-URI = "http://opcuasim.agripak.com"
+URI = "http://OPCUA_ServerSim.agripak.com"
 
 # Percorsi file
 TAGS_FILE = "variables/HMITags.csv"
